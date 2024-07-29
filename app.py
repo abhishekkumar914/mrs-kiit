@@ -36,7 +36,7 @@ def download_data(url):
         file.write(response.content)
     return pd.read_csv("largefile.csv")
 
-data_url = 'https://drive.google.com/file/d/1ZdhsEvaAXjM5SBDLfI5SmSCO37J9gg84/view?usp=drive_link'
+data_url = 'https://drive.google.com/file/d/1A5HNa_Br2_oLhZLwk2mAdUmEifpMd1vR/view?usp=drive_link'
 similarity_path = download_data(data_url)
 movies_dict = r'C:\python\ml\movie-recommender-system\output.csv'
 #similarity_path = r'C:\python\ml\movie-recommender-system\similarity.pkl'
