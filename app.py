@@ -30,8 +30,16 @@ def recommend(movie):
             recommended_movies_posters.append("")
     return recommended_movies, recommended_movies_posters
 
+def download_data(url):
+    response = requests.get(url)
+    with open("largefile.csv", "wb") as file:
+        file.write(response.content)
+    return pd.read_csv("largefile.csv")
+
+data_url = 'https://drive.google.com/file/d/1ZdhsEvaAXjM5SBDLfI5SmSCO37J9gg84/view?usp=drive_link'
+similarity_path = download_data(data_url)
 movies_dict = r'C:\python\ml\movie-recommender-system\output.csv'
-similarity_path = r'C:\python\ml\movie-recommender-system\similarity.pkl'
+#similarity_path = r'C:\python\ml\movie-recommender-system\similarity.pkl'
 
 movies = pd.read_csv(movies_dict)
 similarity = pd.read_pickle(similarity_path)
